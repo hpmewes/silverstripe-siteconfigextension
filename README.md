@@ -23,8 +23,6 @@ If doesn't exist create it.
     SiteConfig:
       extensions:
         - 'SiteConfigExtension'
-
-more Examples in GeonamesService.php
     
 License
 -------
