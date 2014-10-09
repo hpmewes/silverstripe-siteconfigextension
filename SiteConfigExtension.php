@@ -11,6 +11,7 @@ class SiteConfigExtension extends DataExtension {
         'Email'         => 'Varchar',
         'Phone'         => 'Varchar',
         'Twitter'       => 'Varchar',
+        'Facebook'      => 'Varchar'
     );
     
     private static $has_one = array(
@@ -35,6 +36,7 @@ class SiteConfigExtension extends DataExtension {
         $fields->addFieldToTab('Root.Main', new EmailField('Email', 'Email Adresse'), 'Theme');
         $fields->addFieldToTab('Root.Main', new TextField('Phone', 'Telefonnummer'), 'Theme');
         $fields->addFieldToTab('Root.Main', new TextField('Twitter', 'Twitter Link'), 'Theme');
+        $fields->addFieldToTab('Root.Main', new TextField('Facebook', 'Facebook Link'), 'Theme');
     }
     
 }
