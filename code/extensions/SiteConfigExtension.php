@@ -10,8 +10,11 @@ class SiteConfigExtension extends DataExtension {
         'lng'           => 'Varchar',
         'Email'         => 'Varchar',
         'Phone'         => 'Varchar',
+        'Mobile'        => 'Varchar',
+        'Fax'           => 'Varchar',
         'Twitter'       => 'Varchar',
-        'Facebook'      => 'Varchar'
+        'Facebook'      => 'Varchar',
+        'Google'        => 'Varchar'
     );
     
     private static $has_one = array(
@@ -26,6 +29,10 @@ class SiteConfigExtension extends DataExtension {
         $lngField = new TextField('lng', 'Longitude');
         $lngField->setDescription('Die Werte für Latitude und Longitude können von <a href="http://itouchmap.com/latlong.html" target="_blank">itouchmap.com</a> ermittelt werden');
         
+        $latField = new TextField('lat', 'Latitude');
+        $lngField = new TextField('lng', 'Longitude');
+        $lngField->setDescription('Die Werte für Latitude und Longitude können von <a href="http://itouchmap.com/latlong.html" target="_blank">itouchmap.com</a> ermittelt werden');
+        
         $fields->addFieldToTab('Root.Main', new TextField('Street', 'Strasse'), 'Theme');
         $fields->addFieldToTab('Root.Main', new TextField('HouseNumber', 'Hausnummer'), 'Theme');
         $fields->addFieldToTab('Root.Main', new TextField('Zipcode', 'Postleitzahl'), 'Theme');
@@ -35,8 +42,11 @@ class SiteConfigExtension extends DataExtension {
         
         $fields->addFieldToTab('Root.Main', new EmailField('Email', 'Email Adresse'), 'Theme');
         $fields->addFieldToTab('Root.Main', new TextField('Phone', 'Telefonnummer'), 'Theme');
+        $fields->addFieldToTab('Root.Main', new TextField('Mobile', 'Mobilnummer'), 'Theme');
+        $fields->addFieldToTab('Root.Main', new TextField('Fax', 'Faxnummer'), 'Theme');
         $fields->addFieldToTab('Root.Main', new TextField('Twitter', 'Twitter Link'), 'Theme');
         $fields->addFieldToTab('Root.Main', new TextField('Facebook', 'Facebook Link'), 'Theme');
+        $fields->addFieldToTab('Root.Main', new TextField('Gootle', 'Google+ Link'), 'Theme');
     }
     
 }
