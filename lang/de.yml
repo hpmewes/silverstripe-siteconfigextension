@@ -1,0 +1,21 @@
+de:
+  SiteConfigExtension:
+    LOGO: Logo
+    SITEOWNER: Betreiber
+    COMPANY: Firma
+    LATITUDE: Latitude
+    LONGITUDE: Longitude
+    GEOINFO: 'Die Werte für Latitude und Longitude können von <a href="http://itouchmap.com/latlong.html" target="_blank">itouchmap.com</a> ermittelt werden'
+    STREET: Strasse
+    HOUSENUMBER: Hausnummer
+    ZIPCODE: PLZ
+    DESTINATION: Stadt
+    EMAIL: 'Email Adresse'
+    PHONE: 'Telefonnummer'
+    MOBILE: 'Mobilnummer'
+    FAX: 'Faxnummer'
+    TWITTER: 'Twitter Link'
+    FACEBOOK: 'Facebook Link'
+    GOOGLE: 'Google+ Link'
+    MESSAGE: Freitext
+    TABSITEINFO: 'Site Infos'

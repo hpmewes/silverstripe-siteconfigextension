@@ -1,53 +1,61 @@
 <?php
-class SiteConfigExtension extends DataExtension {
-    
+
+class SiteConfigExtension extends DataExtension
+{
+
     private static $db = array(
-        'Street'        => 'Varchar',
-        'HouseNumber'   => 'Varchar',
-        'Zipcode'       => 'Int(5)',
-        'Destination'   => 'Varchar',
-        'lat'           => 'Varchar',
-        'lng'           => 'Varchar',
-        'Email'         => 'Varchar',
-        'Phone'         => 'Varchar',
-        'Mobile'        => 'Varchar',
-        'Fax'           => 'Varchar',
-        'Twitter'       => 'Varchar',
-        'Facebook'      => 'Varchar',
-        'Google'        => 'Varchar'
+        'Company' => 'Varchar',
+        'SiteOwner' => 'Varchar',
+        'Street' => 'Varchar',
+        'HouseNumber' => 'Varchar',
+        'Zipcode' => 'Varchar',
+        'Destination' => 'Varchar',
+        'Lat' => 'Varchar',
+        'Lng' => 'Varchar',
+        'Email' => 'Varchar',
+        'Phone' => 'Varchar',
+        'Mobile' => 'Varchar',
+        'Fax' => 'Varchar',
+        'Twitter' => 'Varchar',
+        'Facebook' => 'Varchar',
+        'Google' => 'Varchar',
+        'Message' => 'HTMLText'
     );
-    
+
     private static $has_one = array(
-        'Logo'          => 'Image',
+        'Logo' => 'Image',
     );
-    
-    public function updateCMSFields(\FieldList $fields) {       
+
+    public function updateCMSFields(\FieldList $fields)
+    {
+        $tabTitle = _t('SiteConfigExtension.TABSITEINFO', "Site Infos");
+
         // add a Logo to whole sites
-        $fields->addFieldToTab('Root.Main', new UploadField('Logo', 'Logo'));
-        
-        $latField = new TextField('lat', 'Latitude');
-        $lngField = new TextField('lng', 'Longitude');
-        $lngField->setDescription('Die Werte für Latitude und Longitude können von <a href="http://itouchmap.com/latlong.html" target="_blank">itouchmap.com</a> ermittelt werden');
-        
-        $latField = new TextField('lat', 'Latitude');
-        $lngField = new TextField('lng', 'Longitude');
-        $lngField->setDescription('Die Werte für Latitude und Longitude können von <a href="http://itouchmap.com/latlong.html" target="_blank">itouchmap.com</a> ermittelt werden');
-        
-        $fields->addFieldToTab('Root.Main', new TextField('Street', 'Strasse'), 'Theme');
-        $fields->addFieldToTab('Root.Main', new TextField('HouseNumber', 'Hausnummer'), 'Theme');
-        $fields->addFieldToTab('Root.Main', new TextField('Zipcode', 'Postleitzahl'), 'Theme');
-        $fields->addFieldToTab('Root.Main', new TextField('Destination', 'Ort'), 'Theme');
-        $fields->addFieldToTab('Root.Main', $latField, 'Theme');
-        $fields->addFieldToTab('Root.Main', $lngField, 'Theme');
-        
-        $fields->addFieldToTab('Root.Main', new EmailField('Email', 'Email Adresse'), 'Theme');
-        $fields->addFieldToTab('Root.Main', new TextField('Phone', 'Telefonnummer'), 'Theme');
-        $fields->addFieldToTab('Root.Main', new TextField('Mobile', 'Mobilnummer'), 'Theme');
-        $fields->addFieldToTab('Root.Main', new TextField('Fax', 'Faxnummer'), 'Theme');
-        $fields->addFieldToTab('Root.Main', new TextField('Twitter', 'Twitter Link'), 'Theme');
-        $fields->addFieldToTab('Root.Main', new TextField('Facebook', 'Facebook Link'), 'Theme');
-        $fields->addFieldToTab('Root.Main', new TextField('Gootle', 'Google+ Link'), 'Theme');
+        $fields->addFieldToTab('Root.'.$tabTitle, new UploadField('Logo', _t('SiteConfigExtension.LOGO', 'Logo')));
+
+        $latField = new TextField('Lat', _t('SiteConfigExtension.LATITUDE', 'Latitude'));
+        $lngField = new TextField('Lng', _t('SiteConfigExtension.LONGITUDE', 'Longitude'));
+        $lngField->setDescription(_t('SiteConfigExtension.GEOINFO','Get latitude & longitude values here: <a href="http://itouchmap.com/latlong.html" target="_blank">itouchmap.com</a>.'));
+
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('Company', _t('SiteConfigExtension.COMPANY', 'Company')));
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('SiteOwner', _t('SiteConfigExtension.SITEOWNER', 'Owner')));
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('Street', _t('SiteConfigExtension.STREET', 'Street')));
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('HouseNumber', _t('SiteConfigExtension.HOUSENUMBER', 'Housenumber')));
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('Zipcode', _t('SiteConfigExtension.ZIPCODE', 'Zipcode')));
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('Destination', _t('SiteConfigExtension.DESTINATION', 'City')));
+        $fields->addFieldToTab('Root.'.$tabTitle, $latField);
+        $fields->addFieldToTab('Root.'.$tabTitle, $lngField);
+
+        $fields->addFieldToTab('Root.'.$tabTitle, new EmailField('Email', _t('SiteConfigExtension.EMAIL', 'Email')));
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('Phone', _t('SiteConfigExtension.PHONE', 'Phone')));
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('Mobile', _t('SiteConfigExtension.MOBILE', 'Mobile')));
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('Fax', _t('SiteConfigExtension.FAX', 'Fax')));
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('Twitter', _t('SiteConfigExtension.TWITTER', 'Twitter')));
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('Facebook', _t('SiteConfigExtension.FACEBOOK', 'Facebook')));
+        $fields->addFieldToTab('Root.'.$tabTitle, new TextField('Google', _t('SiteConfigExtension.GOOGLE', 'Google+')));
+
+        $fields->addFieldToTab('Root.'.$tabTitle, new HtmlEditorField('Message', _t('SiteConfigExtension.MESSAGE', 'Message')));
+
     }
-    
+
 }
-?>
